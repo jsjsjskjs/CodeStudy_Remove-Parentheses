@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        //소괄호 사이에 존재하는 모든 문자를 제거하고 남은 문자만 출력
+        //어떻게 구분할까
+        //stack에 괄호만을 집어넣고 제거하면서
+        let stack = [];
+        let result = "";
+        for (let n = 0; n < s.length; n++) {
+          if (s[n] === "(") stack.push("(");
+          else if (s[n] === ")") stack.pop();
+          else if (stack.length === 0) result += s[n];
+        }
+        return result;
+      }
+
+      let str = "(A(BC)D)EF(G(H)(IJ)K)LM(N)";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
